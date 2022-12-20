@@ -5,11 +5,7 @@ import { slashCommand, slashOptions } from "../types/command";
 import { botToken, clientId } from "../config.json";
 import dictionary from "../types/dictionary";
 const rest: REST = new REST({ version: "10" }).setToken(botToken);
-<<<<<<< HEAD
-const commands: Array<string> = parser(join(__dirname, "./commands"), ".js");
-=======
 const commands: Array<string> = parser(join(__dirname, "./commands"), ".ts");
->>>>>>> bcf63dc (update)
 
 function buildOptions(command: SlashCommandBuilder, options: slashOptions) {
     options.forEach(({ type, name, description, required }) => {

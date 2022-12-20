@@ -14,26 +14,15 @@ export default function dbController() {
             console.log("connected to mongodb");
 
             setInterval(() => {
-<<<<<<< HEAD
-                if (Object.keys(recentWords).length === 0) return console.log("no new words");
-
-                console.log("updating...");
-                console.table(recentWords);
-=======
                 if (Object.keys(recentWords).length === 0) return;
 
->>>>>>> bcf63dc (update)
                 const bulkUpdate = wordSchema.collection.initializeUnorderedBulkOp();
 
                 for (let [key, value] of Object.entries(recentWords)) {
                     bulkUpdate
                         .find({ word: key })
                         .upsert()
-<<<<<<< HEAD
-                        .update({ $inc: { uses: value } });
-=======
                         .update({ $inc: { uses: value.uses }, $set: { date: value.date } });
->>>>>>> bcf63dc (update)
                 }
 
                 bulkUpdate.execute().then(clearRecentWords);

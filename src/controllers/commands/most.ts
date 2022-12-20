@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-import { CommandInteraction } from "discord.js";
-import { Error } from "mongoose";
-=======
 import { CommandInteraction, EmbedBuilder, TextChannel, ButtonStyle, Embed } from "discord.js";
 import { Error } from "mongoose";
 import { Pagination } from "pagination.djs";
->>>>>>> bcf63dc (update)
 import wordSchema, { word } from "../../models/word";
 import recentWords from "../../recent";
 import dictionary from "../../types/dictionary";
@@ -27,15 +22,9 @@ export function execute(interaction: CommandInteraction) {
         .sort({ uses: -1 })
         .collation({ locale: "en_US", numericOrdering: true })
         .limit(100)
-<<<<<<< HEAD
-        .exec((error: Error | null, words: any) => {
-            if (error !== null) {
-                interaction.reply("sorry, error!");
-=======
         .exec(async (error: Error | null, words: any) => {
             if (error !== null) {
                 interaction.reply(":x::book: sorry, error!");
->>>>>>> bcf63dc (update)
                 return;
             }
 
@@ -45,23 +34,15 @@ export function execute(interaction: CommandInteraction) {
 
                 for (let [key, value] of Object.entries(recentWords)) {
                     if (existingWordsKeys.includes(key)) {
-<<<<<<< HEAD
-                        words[existingWords[key]].uses += value;
-=======
                         words[existingWords[key]].uses += value.uses;
                         words[existingWords[key]].date += value.date;
->>>>>>> bcf63dc (update)
                         continue;
                     }
 
                     words.push({
                         word: key,
-<<<<<<< HEAD
-                        uses: value,
-=======
                         uses: value.uses,
                         date: value.date,
->>>>>>> bcf63dc (update)
                     });
                 }
 
@@ -79,15 +60,6 @@ export function execute(interaction: CommandInteraction) {
                 });
             }
 
-<<<<<<< HEAD
-            interaction.reply(
-                words.length > 0
-                    ? words.reduce((final: any, wordData: any, index: number) => {
-                          return `${final}${index + 1}.) **${wordData.word}** with ${wordData.uses} uses\n`;
-                      }, "")
-                    : "no words"
-            );
-=======
             const usedDate: number = Math.round(new Date().getTime() / 1000);
             const paginationEmbeds: Array<EmbedBuilder> = [];
 
@@ -125,6 +97,5 @@ export function execute(interaction: CommandInteraction) {
                     .setFooter({ text: `command used by ${interaction.user.username}`, iconURL: interaction.user.avatarURL() });
             });
             paginationEmbed.render();
->>>>>>> bcf63dc (update)
         });
 }

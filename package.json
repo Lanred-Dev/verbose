@@ -11,17 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-    "discord.js": "^14.6.0",
-    "mongoose": "^6.7.2"
-=======
     "@lanred/gibberish-detective": "^1.0.4",
     "axios": "^1.2.1",
     "discord.js": "^14.6.0",
     "mongoose": "^6.7.2",
     "node-html-to-image": "^3.2.4",
     "pagination.djs": "^4.0.9"
->>>>>>> bcf63dc (update)
   },
   "devDependencies": {
     "@types/node": "^18.11.9",

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+        <style>
+            * {
+                margin: 0px;
+            }
+
+            body {
+                font-family: "Outfit", sans-serif;
+            }
+
+            p {
+                color:white;
+                font-weight: bolder;
+                text-shadow: -3px 3px 0 #ffe76d, 3px 3px 0 #ffe76d, 3px -3px 0 #ffe76d, -3px -3px 0 #ffe76d;
+            }
+
+            .main,
+            .content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .main {
+                width: 600px;
+                height: 400px;
+                overflow: hidden;
+                background-image: url("image\ \(1\).webp");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                position: relative;
+            }
+
+            .content p {
+                color: black;
+            }
+
+            .content .avatar {
+                background-color: #ffe76d;
+                border: #ffe76d 5px solid;
+                border-radius: 99999999px;
+                width: 125px;
+                margin-bottom: 15px;
+            }
+
+            .content .username {
+                font-size: 3rem;
+                line-height: 2.75rem;
+                letter-spacing: 3px;
+            }
+
+            .content .member-number {
+                font-size: large;
+                margin-top: 3px;
+            }
+
+            .footer {
+                width: 100%;
+                background-color: rgb(0, 0, 0, 50%);
+                font-size: large;
+                padding: 10px 5px;
+                text-align: center;
+                text-shadow: none;
+                backdrop-filter: blur(15px);
+                position: absolute;
+                left: 0px;
+                bottom: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="content">
+                <img src="https://assets.codepen.io/t-1/user-default-avatar.jpg?format=auto&version=0&width=80&height=80" class="avatar">
+                <p class="username">Username</p>
+                <p class="member-number">member #15</p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,5 +1,5 @@
 {
-  "name": "word-counter",
+  "name": "word-counter-bot",
   "version": "0.0.0",
   "description": "",
   "main": "src/app.ts",

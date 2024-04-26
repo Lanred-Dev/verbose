@@ -44,7 +44,7 @@ export async function execute(interaction: CommandInteraction) {
                 ],
             });
         })
-        .catch(function (error) {
+        .catch(function () {
             interaction.reply({
                 embeds: [
                     new EmbedBuilder()

@@ -30,12 +30,13 @@ npm install
 
 2. Copy your bot token.
 
-3. Create a `.env` file in the project root:
+3. Create a `.env` (or use the `template.env` and rename to `.env`) file in the project root:
 
     ```env
+    TRACK_USER_WORDS=true
     DISCORD_TOKEN=your_token_here
-    STORAGE_LOCATION=path/to/data.json
-    TRACK_USER_WORDS=true # Whether to track and store each user's most used words
+    DISCORD_CLIENT_ID=your_client_id_here
+    STORAGE_LOCATION=./data.json
     ```
 
 4. Build and run the bot:

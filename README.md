@@ -42,7 +42,7 @@ npm install
 4. Build and run the bot:
 
     ```bash
-    npm build
+    npm run build
     node build/index.js
     ```
 

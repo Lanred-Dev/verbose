@@ -1,17 +1,20 @@
 {
-  "name": "verbose",
-  "version": "0.0.0",
-  "description": "A simple Discord bot that keeps track of the most used words in a server.",
-  "homepage": "https://github.com/Lanred-Dev/verbose#readme",
-  "bugs": {
-    "url": "https://github.com/Lanred-Dev/verbose/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Lanred-Dev/verbose.git"
-  },
-  "license": "MIT",
-  "author": "Landon Redmond",
-  "type": "commonjs",
-  "main": "index.js"
+    "name": "verbose",
+    "version": "0.0.0",
+    "description": "A simple Discord bot that keeps track of the most used words in a server.",
+    "homepage": "https://github.com/Lanred-Dev/verbose#readme",
+    "bugs": {
+        "url": "https://github.com/Lanred-Dev/verbose/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Lanred-Dev/verbose.git"
+    },
+    "engines": {
+        "node": ">=20.0.0"
+    },
+    "license": "MIT",
+    "author": "Landon Redmond",
+    "type": "commonjs",
+    "main": "build/index.js"
 }

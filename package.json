@@ -22,10 +22,11 @@
     },
     "dependencies": {
         "discord.js": "^14.23.2",
-        "dotenv": "^17.2.3"
+        "dotenv": "^17.2.3",
+        "gibberish-detective": "^1.1.1"
     },
     "devDependencies": {
-        "@types/node": "^24.7.2",
+        "@types/node": "^24.8.1",
         "copyfiles": "^2.4.1",
         "typescript": "^5.9.3"
     }

@@ -1,6 +1,7 @@
 import { Message } from "discord.js";
 import { readFile } from "fs";
 import { join } from "path";
+const gibberish = require("gibberish-detective")({ useCache: true });
 
 const MINIMUM_WORD_LENGTH: number = parseInt(process.env.MINIMUM_WORD_LENGTH || "3");
 
@@ -28,5 +29,5 @@ export default function parser(message: Message): string[] {
         .replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, " ")
         .replace(/[0-9]/g, " ")
         .split(" ")
-        .filter((word) => word.length > MINIMUM_WORD_LENGTH && !commonWords.has(word) && /^[a-zA-Z]+$/.test(word));
+        .filter((word) => word.length > MINIMUM_WORD_LENGTH && !commonWords.has(word) && /^[a-zA-Z]+$/.test(word) && !gibberish.detect(word));
 }

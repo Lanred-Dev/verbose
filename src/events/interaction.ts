@@ -10,5 +10,5 @@ getFilesFromDirectory(join(__dirname, "../commands"), ".js", commands);
 export default new Event(Events.InteractionCreate, false, async (interaction: CommandInteraction) => {
     if (interaction.isChatInputCommand() === false || interaction.isButton() === true) return;
 
-    commands.find((command) => command.slash.name === interaction.commandName)?.execute(interaction);
+    commands.find(({ name }) => name === interaction.commandName)?.execute(interaction);
 });

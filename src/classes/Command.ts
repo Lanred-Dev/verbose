@@ -1,29 +1,48 @@
-import { CommandInteraction, SlashCommandBuilder } from "discord.js";
+import { ChatInputCommandInteraction, SlashCommandBuilder } from "discord.js";
 
 export enum CommandCategory {
     help = "Help",
     words = "Words",
 }
 
+export enum CommandArgumentType {
+    STRING,
+    USER,
+}
+
+type CommandArgument = {
+    name: string;
+    description: string;
+    type: CommandArgumentType;
+    required: boolean;
+};
+
 export default class Command {
-    readonly usage: string;
-    readonly cooldown: number;
+    readonly name: string;
+    readonly description: string;
+    readonly args: CommandArgument[];
     readonly category: CommandCategory;
-    readonly slash: {
-        name: string;
-        description: string;
-    };
     readonly command: SlashCommandBuilder;
 
-    execute: (interaction: CommandInteraction) => void;
+    execute: (interaction: ChatInputCommandInteraction) => void;
 
-    constructor(usage: string, cooldown: number, category: CommandCategory, slash: { name: string; description: string }, execute: (interaction: CommandInteraction) => void) {
-        this.usage = usage;
-        this.cooldown = cooldown;
+    constructor(name: string, description: string, category: CommandCategory, args: CommandArgument[], execute: (interaction: ChatInputCommandInteraction) => void) {
+        this.name = name;
+        this.description = description;
         this.category = category;
-        this.slash = slash;
+        this.args = args;
         this.execute = execute;
+        this.command = new SlashCommandBuilder().setName(this.name).setDescription(this.description);
 
-        this.command = new SlashCommandBuilder().setName(this.slash.name).setDescription(this.slash.description);
+        for (const { name, description, required, type } of this.args) {
+            switch (type) {
+                case CommandArgumentType.STRING:
+                    this.command.addStringOption((option) => option.setName(name).setDescription(description).setRequired(required));
+                    break;
+                case CommandArgumentType.USER:
+                    this.command.addUserOption((option) => option.setName(name).setDescription(description).setRequired(required));
+                    break;
+            }
+        }
     }
 }

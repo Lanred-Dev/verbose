@@ -36,7 +36,10 @@ npm install
     TRACK_USER_WORDS=true
     DISCORD_TOKEN=your_token_here
     DISCORD_CLIENT_ID=your_client_id_here
-    STORAGE_LOCATION=./data.json
+    DB_FILE=./data.json
+    DB_UPDATE_INTERVAL=180000
+    PRESENCE_TYPE=Watching
+    PRESENCE_ACTIVITY=your words
     ```
 
 4. Build and run the bot:
@@ -50,4 +53,4 @@ npm install
 
 -   Invite the bot to your server.
 -   It will automatically start tracking word usage.
--   Use `/verbose` to view top words.
+-   Use `/most` to view top words.
